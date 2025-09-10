@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom CSS for Kickoff Eindhoven */
+
+:root {
+  --color-black: #000000;
+  --color-white: #FFFFFF;
+  --color-electric-blue: #0080FF;
+  --color-bright-orange: #FF6B35;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.6;
+  color: var(--color-black);
+  background-color: var(--color-white);
+}
+
+/* Button Styles */
+.btn-primary {
+  @apply px-8 py-4 bg-black text-white font-medium tracking-wider transition-all duration-300 hover:bg-gray-800 hover:scale-105 inline-flex items-center justify-center;
+}
+
+.btn-secondary {
+  @apply px-8 py-4 border-2 border-black text-black font-medium tracking-wider transition-all duration-300 hover:bg-black hover:text-white inline-flex items-center justify-center;
+}
+
+.btn-ghost {
+  @apply px-6 py-3 text-black font-medium tracking-wider transition-all duration-300 hover:bg-gray-100 inline-flex items-center justify-center;
+}
+
+/* Penthouse shadows */
+.penthouse-shadow {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.penthouse-shadow-lg {
+  box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.35);
+}
+
+/* Smooth transitions */
+.smooth-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

@@ -1,4 +1,5 @@
 import Hero from '@/components/Hero'
+import Link from 'next/link'
 import { Lightbulb, Users, Rocket, Calendar, Clock, ArrowRight } from 'lucide-react'
 
 export default function Home() {
@@ -20,33 +21,26 @@ export default function Home() {
     },
   ]
 
-  const events = [
-    {
-      title: 'CEO Talk: Building in Brainport',
-      date: 'Nov 15, 2024',
-      time: '18:00 - 20:00',
-      description: 'Learn from successful founders who built their startups in the Eindhoven ecosystem.',
-    },
-    {
-      title: 'Pitch Night Winter Edition',
-      date: 'Nov 22, 2024',
-      time: '19:00 - 22:00',
-      description: 'Present your startup idea and compete for prizes and mentorship opportunities.',
-    },
-    {
-      title: 'AI Workshop: From Idea to MVP',
-      date: 'Nov 29, 2024',
-      time: '14:00 - 17:00',
-      description: 'Hands-on workshop on leveraging AI to build your minimum viable product.',
-    },
-  ]
-
-  const stats = [
-    { number: '16+', label: 'Years of Impact' },
-    { number: '500+', label: 'Events Hosted' },
-    { number: '5000+', label: 'Students Reached' },
-    { number: '100+', label: 'Startups Launched' },
-  ]
+  // const events = [
+  //   {
+  //     title: 'CEO Talk: Building in Brainport',
+  //     date: 'Nov 15, 2024',
+  //     time: '18:00 - 20:00',
+  //     description: 'Learn from successful founders who built their startups in the Eindhoven ecosystem.',
+  //   },
+  //   {
+  //     title: 'Pitch Night Winter Edition',
+  //     date: 'Nov 22, 2024',
+  //     time: '19:00 - 22:00',
+  //     description: 'Present your startup idea and compete for prizes and mentorship opportunities.',
+  //   },
+  //   {
+  //     title: 'AI Workshop: From Idea to MVP',
+  //     date: 'Nov 29, 2024',
+  //     time: '14:00 - 17:00',
+  //     description: 'Hands-on workshop on leveraging AI to build your minimum viable product.',
+  //   },
+  // ]
 
   return (
     <>
@@ -86,7 +80,7 @@ export default function Home() {
       {/* Upcoming Events Preview */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Upcoming Events
             </h2>
@@ -95,62 +89,87 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
-            {events.map((event, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg border border-gray-100 hover:penthouse-shadow transition-all duration-300">
-                <h3 className="font-bold text-xl mb-3">
-                  {event.title}
-                </h3>
-                <div className="flex items-center text-gray-600 mb-2">
-                  <Calendar size={16} className="mr-2" />
-                  <span>{event.date}</span>
-                </div>
-                <div className="flex items-center text-gray-600 mb-4">
-                  <Clock size={16} className="mr-2" />
-                  <span>{event.time}</span>
-                </div>
-                <p className="text-gray-700 mb-4">
-                  {event.description}
-                </p>
-                <button className="btn-ghost group">
-                  Register Now
-                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={16} />
-                </button>
-              </div>
-            ))}
+          <div className="text-center py-8">
+            <div className="bg-white p-8 rounded-lg border border-gray-100 penthouse-shadow max-w-lg mx-auto">
+              <Calendar size={40} className="mx-auto mb-4 text-brand-electric-blue" />
+              <h3 className="text-xl font-bold">
+                Exciting Events Coming Soon!
+              </h3>
+            </div>
           </div>
 
           <div className="text-center">
-            <button className="btn-primary">
-              View All Events
-            </button>
+            <Link href="/events">
+              <button className="btn-primary">
+                View All Events
+              </button>
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Impact Stats */}
+      {/* Last Year's Events - Founders Showcase */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black text-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Our Impact
+              Last Year's Impact
             </h2>
             <p className="text-xl text-gray-300">
-              Building the startup ecosystem since 2008
+              We brought in founders worth over <span className="text-brand-electric-blue font-bold">1 Billion €</span>
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-4xl md:text-6xl font-bold mb-2 text-brand-electric-blue">
-                  {stat.number}
-                </div>
-                <div className="text-gray-300 font-medium tracking-wider">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-8 items-center">
+            <div className="flex justify-center">
+              <img 
+                src="/avularlogo.webp" 
+                alt="Avular" 
+                className="h-12 md:h-16 object-contain filter brightness-0 invert opacity-80 hover:opacity-100 transition-opacity"
+              />
+            </div>
+            <div className="flex justify-center">
+              <img 
+                src="/axeleraailogo.png" 
+                alt="Axelera AI" 
+                className="h-12 md:h-16 object-contain filter brightness-0 invert opacity-80 hover:opacity-100 transition-opacity"
+              />
+            </div>
+            <div className="flex justify-center">
+              <img 
+                src="/BlueWalkerLogo.jpg" 
+                alt="Blue Walker" 
+                className="h-12 md:h-16 object-contain filter brightness-0 invert opacity-80 hover:opacity-100 transition-opacity"
+              />
+            </div>
+            <div className="flex justify-center">
+              <img 
+                src="/dembradelogo.jpg" 
+                alt="Dembrade" 
+                className="h-12 md:h-16 object-contain filter brightness-0 invert opacity-80 hover:opacity-100 transition-opacity"
+              />
+            </div>
+            <div className="flex justify-center">
+              <img 
+                src="/smartphotonicslogo.png" 
+                alt="Smart Photonics" 
+                className="h-12 md:h-16 object-contain filter brightness-0 invert opacity-80 hover:opacity-100 transition-opacity"
+              />
+            </div>
+            <div className="flex justify-center">
+              <img 
+                src="/weheatlogo.jpg" 
+                alt="WeHeat" 
+                className="h-12 md:h-16 object-contain filter brightness-0 invert opacity-80 hover:opacity-100 transition-opacity"
+              />
+            </div>
+            <div className="flex justify-center">
+              <img 
+                src="/KickoffLogo.png" 
+                alt="Kick-Off" 
+                className="h-12 md:h-16 object-contain filter brightness-0 invert opacity-80 hover:opacity-100 transition-opacity"
+              />
+            </div>
           </div>
         </div>
       </section>

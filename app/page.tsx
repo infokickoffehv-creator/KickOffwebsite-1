@@ -120,55 +120,60 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-8 items-center">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
             <div className="flex justify-center">
-              <img 
-                src="/avularlogo.webp" 
-                alt="Avular" 
-                className="h-12 md:h-16 object-contain filter brightness-0 invert opacity-80 hover:opacity-100 transition-opacity"
-              />
+              <a href="https://www.avular.com/" target="_blank" rel="noopener noreferrer">
+                <img
+                  src="/avularlogo.webp"
+                  alt="Avular"
+                  className="h-14 md:h-20 object-contain opacity-80 hover:opacity-100 transition-opacity cursor-pointer"
+                />
+              </a>
             </div>
             <div className="flex justify-center">
-              <img 
-                src="/axeleraailogo.png" 
-                alt="Axelera AI" 
-                className="h-12 md:h-16 object-contain filter brightness-0 invert opacity-80 hover:opacity-100 transition-opacity"
-              />
+              <a href="https://axelera.ai/" target="_blank" rel="noopener noreferrer">
+                <img
+                  src="/axeleraailogo.png"
+                  alt="Axelera AI"
+                  className="h-14 md:h-20 object-contain filter brightness-0 invert opacity-80 hover:opacity-100 transition-opacity cursor-pointer"
+                />
+              </a>
             </div>
             <div className="flex justify-center">
-              <img 
-                src="/BlueWalkerLogo.jpg" 
-                alt="Blue Walker" 
-                className="h-12 md:h-16 object-contain filter brightness-0 invert opacity-80 hover:opacity-100 transition-opacity"
-              />
+              <a href="https://www.linkedin.com/in/curiouscamilo/" target="_blank" rel="noopener noreferrer">
+                <img
+                  src="/BlueWalkerLogo.jpg"
+                  alt="Blue Walker"
+                  className="h-14 md:h-20 object-contain opacity-80 hover:opacity-100 transition-opacity cursor-pointer"
+                />
+              </a>
             </div>
             <div className="flex justify-center">
-              <img 
-                src="/dembradelogo.jpg" 
-                alt="Dembrade" 
-                className="h-12 md:h-16 object-contain filter brightness-0 invert opacity-80 hover:opacity-100 transition-opacity"
-              />
+              <a href="https://www.dembrane.com/en-US" target="_blank" rel="noopener noreferrer">
+                <img
+                  src="/dembradelogo.jpg"
+                  alt="Dembrane"
+                  className="h-14 md:h-20 object-contain opacity-80 hover:opacity-100 transition-opacity cursor-pointer"
+                />
+              </a>
             </div>
             <div className="flex justify-center">
-              <img 
-                src="/smartphotonicslogo.png" 
-                alt="Smart Photonics" 
-                className="h-12 md:h-16 object-contain filter brightness-0 invert opacity-80 hover:opacity-100 transition-opacity"
-              />
+              <a href="https://smartphotonics.nl/" target="_blank" rel="noopener noreferrer">
+                <img
+                  src="/smartphotonicslogo.png"
+                  alt="Smart Photonics"
+                  className="h-14 md:h-20 object-contain opacity-80 hover:opacity-100 transition-opacity cursor-pointer"
+                />
+              </a>
             </div>
             <div className="flex justify-center">
-              <img 
-                src="/weheatlogo.jpg" 
-                alt="WeHeat" 
-                className="h-12 md:h-16 object-contain filter brightness-0 invert opacity-80 hover:opacity-100 transition-opacity"
-              />
-            </div>
-            <div className="flex justify-center">
-              <img 
-                src="/KickoffLogo.png" 
-                alt="Kick-Off" 
-                className="h-12 md:h-16 object-contain filter brightness-0 invert opacity-80 hover:opacity-100 transition-opacity"
-              />
+              <a href="https://www.weheat.nl/" target="_blank" rel="noopener noreferrer">
+                <img
+                  src="/weheatlogo.jpg"
+                  alt="WeHeat"
+                  className="h-14 md:h-20 object-contain opacity-80 hover:opacity-100 transition-opacity cursor-pointer"
+                />
+              </a>
             </div>
           </div>
         </div>

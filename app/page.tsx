@@ -55,7 +55,7 @@ export default function Home() {
               Last Year's Impact
             </h2>
             <p className="text-xl text-gray-600">
-              We brought in founders worth over <span className="text-brand-electric-blue font-bold">1 Billion €</span>
+              We brought in founders worth over <span className="text-brand-electric-blue font-bold whitespace-nowrap">1 Billion €</span>
             </p>
           </div>
 

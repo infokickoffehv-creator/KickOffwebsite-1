@@ -47,6 +47,77 @@ export default function Home() {
       {/* Hero Section */}
       <Hero />
 
+      {/* Last Year's Events - Founders Showcase */}
+      <section className="py-6 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Last Year's Impact
+            </h2>
+            <p className="text-xl text-gray-600">
+              We brought in founders worth over <span className="text-brand-electric-blue font-bold">1 Billion €</span>
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
+            <div className="flex justify-center">
+              <a href="https://www.avular.com/" target="_blank" rel="noopener noreferrer">
+                <img
+                  src="/avularlogo.webp"
+                  alt="Avular"
+                  className="h-14 md:h-20 object-contain opacity-80 hover:opacity-100 transition-opacity cursor-pointer"
+                />
+              </a>
+            </div>
+            <div className="flex justify-center">
+              <a href="https://axelera.ai/" target="_blank" rel="noopener noreferrer">
+                <img
+                  src="/axeleraailogo.png"
+                  alt="Axelera AI"
+                  className="h-14 md:h-20 object-contain opacity-80 hover:opacity-100 transition-opacity cursor-pointer"
+                />
+              </a>
+            </div>
+            <div className="flex justify-center">
+              <a href="https://www.linkedin.com/in/curiouscamilo/" target="_blank" rel="noopener noreferrer">
+                <img
+                  src="/BlueWalkerLogo.jpg"
+                  alt="Blue Walker"
+                  className="h-14 md:h-20 object-contain opacity-80 hover:opacity-100 transition-opacity cursor-pointer"
+                />
+              </a>
+            </div>
+            <div className="flex justify-center">
+              <a href="https://www.dembrane.com/en-US" target="_blank" rel="noopener noreferrer">
+                <img
+                  src="/dembradelogo.jpg"
+                  alt="Dembrane"
+                  className="h-14 md:h-20 object-contain opacity-80 hover:opacity-100 transition-opacity cursor-pointer"
+                />
+              </a>
+            </div>
+            <div className="flex justify-center">
+              <a href="https://smartphotonics.nl/" target="_blank" rel="noopener noreferrer">
+                <img
+                  src="/smartphotonicslogo.png"
+                  alt="Smart Photonics"
+                  className="h-14 md:h-20 object-contain opacity-80 hover:opacity-100 transition-opacity cursor-pointer"
+                />
+              </a>
+            </div>
+            <div className="flex justify-center">
+              <a href="https://www.weheat.nl/" target="_blank" rel="noopener noreferrer">
+                <img
+                  src="/weheatlogo.jpg"
+                  alt="WeHeat"
+                  className="h-14 md:h-20 object-contain opacity-80 hover:opacity-100 transition-opacity cursor-pointer"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Three Pillars Section */}
       <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
@@ -104,100 +175,6 @@ export default function Home() {
                 View All Events
               </button>
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Last Year's Events - Founders Showcase */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black text-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Last Year's Impact
-            </h2>
-            <p className="text-xl text-gray-300">
-              We brought in founders worth over <span className="text-brand-electric-blue font-bold">1 Billion €</span>
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
-            <div className="flex justify-center">
-              <a href="https://www.avular.com/" target="_blank" rel="noopener noreferrer">
-                <img
-                  src="/avularlogo.webp"
-                  alt="Avular"
-                  className="h-14 md:h-20 object-contain opacity-80 hover:opacity-100 transition-opacity cursor-pointer"
-                />
-              </a>
-            </div>
-            <div className="flex justify-center">
-              <a href="https://axelera.ai/" target="_blank" rel="noopener noreferrer">
-                <img
-                  src="/axeleraailogo.png"
-                  alt="Axelera AI"
-                  className="h-14 md:h-20 object-contain filter brightness-0 invert opacity-80 hover:opacity-100 transition-opacity cursor-pointer"
-                />
-              </a>
-            </div>
-            <div className="flex justify-center">
-              <a href="https://www.linkedin.com/in/curiouscamilo/" target="_blank" rel="noopener noreferrer">
-                <img
-                  src="/BlueWalkerLogo.jpg"
-                  alt="Blue Walker"
-                  className="h-14 md:h-20 object-contain opacity-80 hover:opacity-100 transition-opacity cursor-pointer"
-                />
-              </a>
-            </div>
-            <div className="flex justify-center">
-              <a href="https://www.dembrane.com/en-US" target="_blank" rel="noopener noreferrer">
-                <img
-                  src="/dembradelogo.jpg"
-                  alt="Dembrane"
-                  className="h-14 md:h-20 object-contain opacity-80 hover:opacity-100 transition-opacity cursor-pointer"
-                />
-              </a>
-            </div>
-            <div className="flex justify-center">
-              <a href="https://smartphotonics.nl/" target="_blank" rel="noopener noreferrer">
-                <img
-                  src="/smartphotonicslogo.png"
-                  alt="Smart Photonics"
-                  className="h-14 md:h-20 object-contain opacity-80 hover:opacity-100 transition-opacity cursor-pointer"
-                />
-              </a>
-            </div>
-            <div className="flex justify-center">
-              <a href="https://www.weheat.nl/" target="_blank" rel="noopener noreferrer">
-                <img
-                  src="/weheatlogo.jpg"
-                  alt="WeHeat"
-                  className="h-14 md:h-20 object-contain opacity-80 hover:opacity-100 transition-opacity cursor-pointer"
-                />
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Newsletter Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Stay in the Loop
-          </h2>
-          <p className="text-xl text-gray-600 mb-12">
-            Get the latest updates on events, opportunities, and startup news
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-6 py-4 border border-gray-300 rounded-lg focus:outline-none focus:border-black transition-colors"
-            />
-            <button className="btn-primary">
-              Subscribe
-            </button>
           </div>
         </div>
       </section>

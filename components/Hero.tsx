@@ -17,10 +17,10 @@ export default function Hero() {
             </div>
           </div>
 
-          <p className="text-xl md:text-2xl text-gray-700 mb-4 font-light whitespace-nowrap">
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-700 mb-4 font-light">
             Brainport's first startup and entrepreneur club
           </p>
-          <p className="text-lg md:text-xl text-gray-600 mb-12">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-12">
             for students, by students
           </p>
         </div>

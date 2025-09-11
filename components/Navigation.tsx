@@ -11,9 +11,6 @@ export default function Navigation() {
     { name: 'HOME', href: '/' },
     { name: 'EVENTS', href: '/events' },
     { name: 'ABOUT', href: '/about' },
-    { name: 'BOARD', href: '/board' },
-    { name: 'COMMUNITY', href: '/community' },
-    { name: 'CONTACT', href: '/contact' },
   ]
 
   return (

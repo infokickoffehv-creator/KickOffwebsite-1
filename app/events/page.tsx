@@ -22,15 +22,15 @@ export default function Events() {
               {upcomingEvents.map((event) => (
                 <div key={event.id} className="bg-white p-6 rounded-lg border border-gray-100 penthouse-shadow hover:penthouse-shadow-lg transition-all duration-300">
                   <h3 className="text-xl font-bold mb-3">{event.title}</h3>
-                  
+
                   <div className="space-y-2 text-gray-600 mb-4">
                     <div className="flex items-center gap-2">
                       <Calendar size={16} />
-                      <span>{new Date(event.date).toLocaleDateString('en-US', { 
-                        weekday: 'long', 
-                        year: 'numeric', 
-                        month: 'long', 
-                        day: 'numeric' 
+                      <span>{new Date(event.date).toLocaleDateString('en-US', {
+                        weekday: 'long',
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
                       })}</span>
                     </div>
                     <div className="flex items-center gap-2">
@@ -92,10 +92,10 @@ export default function Events() {
                 <div key={event.id} className="bg-gray-50 p-6 rounded-lg border border-gray-100">
                   <h3 className="text-lg font-bold mb-2">{event.title}</h3>
                   <div className="text-sm text-gray-600 mb-2">
-                    {new Date(event.date).toLocaleDateString('en-US', { 
-                      year: 'numeric', 
-                      month: 'long', 
-                      day: 'numeric' 
+                    {new Date(event.date).toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric'
                     })} • {event.time}
                   </div>
                   <p className="text-gray-600 text-sm line-clamp-2">

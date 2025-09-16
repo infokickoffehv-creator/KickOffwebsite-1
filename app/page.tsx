@@ -5,7 +5,7 @@ import { getFeaturedEvents } from '@/data/events'
 
 export default function Home() {
   const featuredEvents = getFeaturedEvents(1); // Get the first upcoming event
-  
+
   const pillars = [
     {
       title: 'INSPIRE',
@@ -146,11 +146,11 @@ export default function Home() {
                       <div className="flex flex-wrap gap-4 text-gray-600 mb-3">
                         <div className="flex items-center gap-1">
                           <Calendar size={16} />
-                          <span>{new Date(event.date).toLocaleDateString('en-US', { 
-                            weekday: 'long', 
-                            year: 'numeric', 
-                            month: 'long', 
-                            day: 'numeric' 
+                          <span>{new Date(event.date).toLocaleDateString('en-US', {
+                            weekday: 'long',
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric'
                           })}</span>
                         </div>
                         <div className="flex items-center gap-1">

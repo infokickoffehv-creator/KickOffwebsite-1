@@ -118,36 +118,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Three Pillars Section */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Our Mission
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We create an ecosystem where student entrepreneurs can thrive through three core pillars
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {pillars.map((pillar, index) => (
-              <div key={index} className="text-center p-8 bg-white rounded-lg penthouse-shadow hover:penthouse-shadow-lg transition-all duration-300">
-                <div className="text-black mb-6 flex justify-center">
-                  {pillar.icon}
-                </div>
-                <h3 className="text-2xl font-bold mb-4 tracking-wider">
-                  {pillar.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {pillar.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Upcoming Events Preview */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
@@ -173,6 +143,44 @@ export default function Home() {
             <Link href="/events">
               <button className="btn-primary">
                 View All Events
+              </button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Mission */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Our Mission
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              We create an ecosystem where student entrepreneurs can thrive through three core pillars
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {pillars.map((pillar, index) => (
+              <div key={index} className="text-center p-8 bg-white rounded-lg penthouse-shadow hover:penthouse-shadow-lg transition-all duration-300">
+                <div className="text-black mb-6 flex justify-center">
+                  {pillar.icon}
+                </div>
+                <h3 className="text-2xl font-bold mb-4 tracking-wider">
+                  {pillar.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {pillar.description}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Link href="/about">
+              <button className="btn-primary">
+                Learn More About Us
               </button>
             </Link>
           </div>

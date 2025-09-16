@@ -27,19 +27,19 @@ export default function Events() {
                       <Calendar size={24} className="text-green-400" />
                       <span className="text-green-400 font-semibold text-lg">Upcoming Event</span>
                     </div>
-                    
+
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
                       {nvidiaEvent.title}
                     </h2>
-                    
+
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
                       <div className="flex items-center gap-3">
                         <Calendar size={20} className="text-gray-300" />
                         <div>
                           <p className="text-gray-300 text-sm">Date</p>
-                          <p className="font-semibold">{new Date(nvidiaEvent.date).toLocaleDateString('en-US', { 
-                            weekday: 'long', 
-                            month: 'long', 
+                          <p className="font-semibold">{new Date(nvidiaEvent.date).toLocaleDateString('en-US', {
+                            weekday: 'long',
+                            month: 'long',
                             day: 'numeric',
                             year: 'numeric'
                           })}</p>
@@ -60,7 +60,7 @@ export default function Events() {
                         </div>
                       </div>
                     </div>
-                    
+
                     <p className="text-gray-200 text-lg mb-6 leading-relaxed">
                       {nvidiaEvent.description}
                     </p>
@@ -90,7 +90,7 @@ export default function Events() {
                   </div>
                 </div>
               </div>
-              
+
               {/* Background decoration */}
               <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-green-500/20 to-transparent"></div>
             </div>

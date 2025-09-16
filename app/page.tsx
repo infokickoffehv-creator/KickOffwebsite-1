@@ -1,8 +1,11 @@
 import Hero from '@/components/Hero'
 import Link from 'next/link'
-import { Lightbulb, Users, Rocket, Calendar, Clock, ArrowRight } from 'lucide-react'
+import { Lightbulb, Users, Rocket, Calendar, Clock, ArrowRight, MapPin } from 'lucide-react'
+import { getFeaturedEvents } from '@/data/events'
 
 export default function Home() {
+  const featuredEvents = getFeaturedEvents(1); // Get the first upcoming event
+  
   const pillars = [
     {
       title: 'INSPIRE',
@@ -130,14 +133,62 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="text-center py-8">
-            <div className="bg-white p-8 rounded-lg border border-gray-100 penthouse-shadow max-w-lg mx-auto">
-              <Calendar size={40} className="mx-auto mb-4 text-brand-electric-blue" />
-              <h3 className="text-xl font-bold">
-                Exciting Events Coming Soon!
-              </h3>
+          {featuredEvents.length > 0 ? (
+            <div className="max-w-2xl mx-auto mb-12">
+              {featuredEvents.map((event) => (
+                <div key={event.id} className="bg-white p-8 rounded-lg border border-gray-100 penthouse-shadow hover:penthouse-shadow-lg transition-all duration-300 mb-8">
+                  <div className="flex items-start gap-4 mb-4">
+                    <Calendar size={24} className="text-brand-electric-blue mt-1 flex-shrink-0" />
+                    <div className="text-left flex-grow">
+                      <h3 className="text-2xl font-bold mb-2">
+                        {event.title}
+                      </h3>
+                      <div className="flex flex-wrap gap-4 text-gray-600 mb-3">
+                        <div className="flex items-center gap-1">
+                          <Calendar size={16} />
+                          <span>{new Date(event.date).toLocaleDateString('en-US', { 
+                            weekday: 'long', 
+                            year: 'numeric', 
+                            month: 'long', 
+                            day: 'numeric' 
+                          })}</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <Clock size={16} />
+                          <span>{event.time}</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <MapPin size={16} />
+                          <span>Atlast 0.820</span>
+                        </div>
+                      </div>
+                      <p className="text-gray-600 mb-6">
+                        {event.description}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    {event.ticketUrl && (
+                      <Link href={event.ticketUrl} target="_blank" rel="noopener noreferrer">
+                        <button className="btn-primary">
+                          Register for Event
+                        </button>
+                      </Link>
+                    )}
+                  </div>
+                </div>
+              ))}
             </div>
-          </div>
+          ) : (
+            <div className="text-center py-8">
+              <div className="bg-white p-8 rounded-lg border border-gray-100 penthouse-shadow max-w-lg mx-auto">
+                <Calendar size={40} className="mx-auto mb-4 text-brand-electric-blue" />
+                <h3 className="text-xl font-bold">
+                  Exciting Events Coming Soon!
+                </h3>
+              </div>
+            </div>
+          )}
 
           <div className="text-center">
             <Link href="/events">

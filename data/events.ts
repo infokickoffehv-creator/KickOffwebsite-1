@@ -3,6 +3,31 @@ import type { Event } from '@/lib/types';
 // Mock Events Data
 export const mockEvents: Event[] = [
   {
+    id: 'event-nvidia-ceo',
+    title: 'Exclusive CEO Talk: Jensen Huang, NVIDIA',
+    description: 'Join us for an extraordinary evening with Jensen Huang, CEO and Founder of NVIDIA, as he shares insights on AI innovation, entrepreneurship, and building the future of computing.',
+    date: '2025-10-08',
+    time: '19:00',
+    location: 'TU/e Auditorium',
+    type: 'ceo-talks',
+    status: 'upcoming',
+    ticketUrl: 'https://eventbrite.com/kickoff-nvidia-ceo',
+    image: '/images/events/jensen-huang-talk.jpg',
+    capacity: 500,
+    registeredCount: 423,
+    speakers: [
+      {
+        id: 'jensen-huang',
+        name: 'Jensen Huang',
+        title: 'CEO & Founder',
+        company: 'NVIDIA',
+        bio: 'Jensen Huang co-founded NVIDIA in 1993 and has served as CEO and president since inception. Under his leadership, NVIDIA has become the global leader in AI computing.',
+        image: '/images/speakers/jensen-huang.jpg',
+        linkedinUrl: 'https://linkedin.com/in/jenhsunhuang',
+      }
+    ]
+  },
+  {
     id: 'event-001',
     title: 'CEO Talk: From Student to Unicorn Founder',
     description: 'Join us for an inspiring session with successful entrepreneurs who started their journey as students and built billion-dollar companies.',

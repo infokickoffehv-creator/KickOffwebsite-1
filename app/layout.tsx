@@ -9,6 +9,44 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'Kickoff Eindhoven - Brainport\'s First Startup Club',
   description: 'Where student ambitions become startup realities. Join Brainport\'s premier startup and entrepreneur club for students.',
+  keywords: ['startup club', 'entrepreneur', 'students', 'Eindhoven', 'Brainport', 'networking', 'innovation', 'business', 'startup community'],
+  authors: [{ name: 'Kickoff Eindhoven' }],
+  creator: 'Kickoff Eindhoven',
+  publisher: 'Kickoff Eindhoven',
+  robots: 'index, follow',
+
+  // Open Graph tags for social sharing (WhatsApp, Facebook, etc.)
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://kickoffeindhoven.com', // Update with your actual domain
+    siteName: 'Kickoff Eindhoven',
+    title: 'Kickoff Eindhoven - Brainport\'s First Startup Club',
+    description: 'Where student ambitions become startup realities. Join Brainport\'s premier startup and entrepreneur club for students.',
+    images: [
+      {
+        url: '/KickoffLogo.png',
+        width: 1200,
+        height: 630,
+        alt: 'Kickoff Eindhoven Logo',
+      },
+    ],
+  },
+
+  // Twitter Card tags
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Kickoff Eindhoven - Brainport\'s First Startup Club',
+    description: 'Where student ambitions become startup realities. Join Brainport\'s premier startup and entrepreneur club for students.',
+    images: ['/KickoffLogo.png'],
+  },
+
+  // Favicon and app icons
+  icons: {
+    icon: '/KickoffLogo.png',
+    shortcut: '/KickoffLogo.png',
+    apple: '/KickoffLogo.png',
+  },
 }
 
 export default function RootLayout({
@@ -18,6 +56,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#000000" />
+      </head>
       <body className={inter.className}>
         <Navigation />
         <main className="min-h-screen bg-white">

@@ -54,7 +54,7 @@ export default function Footer() {
       </div>
 
       <div className="mt-12 pt-8 border-t border-gray-800 text-center text-gray-400">
-        <p>&copy; 2024 Kickoff Eindhoven. Since 2008. All rights reserved.</p>
+        <p>&copy; 2025 Kickoff Eindhoven. Since 2008. All rights reserved.</p>
       </div>
     </footer>
   )

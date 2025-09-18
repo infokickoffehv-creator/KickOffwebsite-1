@@ -17,6 +17,7 @@ export interface Event {
 
 export type EventType =
   | 'ceo-talks'
+  | 'business-talks'
   | 'workshops'
   | 'pitch-nights'
   | 'networking'

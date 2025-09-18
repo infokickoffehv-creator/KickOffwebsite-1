@@ -122,78 +122,139 @@ export default function Home() {
       </section>
 
       {/* Upcoming Events Preview */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-black text-white px-4 py-2 rounded-full text-sm font-medium tracking-wider mb-6">
+              <Calendar size={16} />
+              UPCOMING EVENTS
+            </div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Upcoming Events
             </h2>
-            <p className="text-xl text-gray-600">
-              Join us for inspiring talks, workshops, and networking opportunities
-            </p>
           </div>
 
           {featuredEvents.length > 0 ? (
-            <div className="max-w-2xl mx-auto mb-12">
-              {featuredEvents.map((event) => (
-                <div key={event.id} className="bg-white p-8 rounded-lg border border-gray-100 penthouse-shadow hover:penthouse-shadow-lg transition-all duration-300 mb-8">
-                  <div className="flex items-start gap-4 mb-4">
-                    <Calendar size={24} className="text-brand-electric-blue mt-1 flex-shrink-0" />
-                    <div className="text-left flex-grow">
-                      <h3 className="text-2xl font-bold mb-2">
-                        {event.title}
-                      </h3>
-                      <div className="flex flex-wrap gap-4 text-gray-600 mb-3">
-                        <div className="flex items-center gap-1">
-                          <Calendar size={16} />
-                          <span>{new Date(event.date).toLocaleDateString('en-US', {
-                            weekday: 'long',
-                            year: 'numeric',
-                            month: 'long',
-                            day: 'numeric'
-                          })}</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Clock size={16} />
-                          <span>{event.time}</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <MapPin size={16} />
-                          <span>Atlast 0.820</span>
-                        </div>
+            <div className="grid gap-8 mb-12">
+              {featuredEvents.map((event, index) => (
+                <div key={event.id} className={`group relative overflow-hidden rounded-2xl penthouse-shadow hover:penthouse-shadow-lg transition-all duration-500 hover:scale-[1.02] ${
+                  index === 0 ? 'bg-gradient-to-r from-black to-gray-800 text-white' : 'bg-white'
+                }`}>
+                  {/* Featured event (first one) gets special treatment */}
+                  {index === 0 && (
+                    <div className="absolute top-4 right-4 z-10">
+                      <div className="bg-brand-electric-blue text-white px-3 py-1 rounded-full text-xs font-bold tracking-wider">
+                        FEATURED
                       </div>
-                      <p className="text-gray-600 mb-6">
-                        {event.description}
-                      </p>
+                    </div>
+                  )}
+
+                  <div className="p-8 md:p-12">
+                    <div className="flex flex-col lg:flex-row lg:items-center gap-8">
+                      {/* Event Info */}
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3 mb-4">
+                          <div className={`p-2 rounded-lg ${index === 0 ? 'bg-white/20' : 'bg-gray-100'}`}>
+                            <Calendar size={20} className={index === 0 ? 'text-white' : 'text-brand-electric-blue'} />
+                          </div>
+                          <div className="flex flex-wrap gap-4 text-sm">
+                            <span className={`font-medium ${index === 0 ? 'text-gray-200' : 'text-gray-600'}`}>
+                              {new Date(event.date).toLocaleDateString('en-US', {
+                                weekday: 'long',
+                                month: 'long',
+                                day: 'numeric',
+                                year: 'numeric'
+                              })}
+                            </span>
+                            <span className={`${index === 0 ? 'text-gray-300' : 'text-gray-500'}`}>•</span>
+                            <span className={`font-medium ${index === 0 ? 'text-gray-200' : 'text-gray-600'}`}>
+                              {event.time}
+                            </span>
+                            <span className={`${index === 0 ? 'text-gray-300' : 'text-gray-500'}`}>•</span>
+                            <span className={`font-medium ${index === 0 ? 'text-gray-200' : 'text-gray-600'}`}>
+                              Atlast 0.820
+                            </span>
+                          </div>
+                        </div>
+
+                        <h3 className={`text-2xl md:text-3xl font-bold mb-4 leading-tight ${
+                          index === 0 ? 'text-white' : 'text-black'
+                        }`}>
+                          {event.title}
+                        </h3>
+
+                        <p className={`text-lg leading-relaxed mb-6 ${
+                          index === 0 ? 'text-gray-200' : 'text-gray-600'
+                        }`}>
+                          {event.description}
+                        </p>
+
+                        {/* Speakers */}
+                        {event.speakers && event.speakers.length > 0 && (
+                          <div className="flex items-center gap-3 mb-6">
+                            <Users size={16} className={index === 0 ? 'text-gray-300' : 'text-gray-500'} />
+                            <span className={`text-sm font-medium ${index === 0 ? 'text-gray-300' : 'text-gray-500'}`}>
+                              Speaker:
+                            </span>
+                            {event.speakers.map((speaker) => (
+                              <span key={speaker.id} className={`font-semibold ${
+                                index === 0 ? 'text-white' : 'text-black'
+                              }`}>
+                                {speaker.name}, {speaker.title} at {speaker.company}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+
+                      {/* CTA */}
+                      <div className="lg:flex-shrink-0">
+                        {event.ticketUrl && (
+                          <Link href={event.ticketUrl} target="_blank" rel="noopener noreferrer">
+                            <button className={`group/btn relative overflow-hidden px-8 py-4 font-bold tracking-wider transition-all duration-300 hover:scale-105 ${
+                              index === 0
+                                ? 'bg-white text-black hover:bg-gray-100'
+                                : 'bg-black text-white hover:bg-gray-800'
+                            }`}>
+                              <span className="relative z-10 flex items-center gap-2">
+                                Register Now
+                                <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
+                              </span>
+                            </button>
+                          </Link>
+                        )}
+                      </div>
                     </div>
                   </div>
-                  <div className="text-center">
-                    {event.ticketUrl && (
-                      <Link href={event.ticketUrl} target="_blank" rel="noopener noreferrer">
-                        <button className="btn-primary">
-                          Register for Event
-                        </button>
-                      </Link>
-                    )}
-                  </div>
+
+                  {/* Decorative elements */}
+                  {index === 0 && (
+                    <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-brand-electric-blue/20 to-transparent"></div>
+                  )}
                 </div>
               ))}
             </div>
           ) : (
-            <div className="text-center py-8">
-              <div className="bg-white p-8 rounded-lg border border-gray-100 penthouse-shadow max-w-lg mx-auto">
-                <Calendar size={40} className="mx-auto mb-4 text-brand-electric-blue" />
-                <h3 className="text-xl font-bold">
+            <div className="text-center py-16">
+              <div className="bg-white p-12 rounded-2xl penthouse-shadow max-w-lg mx-auto">
+                <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Calendar size={32} className="text-brand-electric-blue" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4">
                   Exciting Events Coming Soon!
                 </h3>
+                <p className="text-gray-600">
+                  We're cooking up some amazing events. Stay tuned!
+                </p>
               </div>
             </div>
           )}
 
           <div className="text-center">
             <Link href="/events">
-              <button className="btn-primary">
-                View All Events
+              <button className="btn-primary group">
+                <span>View All Events</span>
+                <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
               </button>
             </Link>
           </div>

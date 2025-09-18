@@ -4,12 +4,12 @@ import type { Event } from '@/lib/types';
 export const mockEvents: Event[] = [
   {
     id: 'event-nvidia-ceo',
-    title: 'Exclusive CEO Talk: Jensen Huang, NVIDIA',
-    description: 'Join us for an extraordinary evening with Jensen Huang, CEO and Founder of NVIDIA, as he shares insights on AI innovation, entrepreneurship, and building the future of computing.',
+    title: 'Eindhoven Business Talk: Jensen Huang, NVIDIA (Test Event)',
+    description: 'Join us for an extraordinary evening with Jensen Huang, CEO and Founder of NVIDIA, as he shares insights on AI innovation, entrepreneurship, and building the future of computing. Note: This is a test event for demonstration purposes.',
     date: '2025-10-08',
     time: '19:00',
     location: 'TU/e Auditorium',
-    type: 'ceo-talks',
+    type: 'business-talks',
     status: 'upcoming',
     ticketUrl: 'https://eventbrite.com/kickoff-nvidia-ceo',
     image: '/images/events/jensen-huang-talk.jpg',

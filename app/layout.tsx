@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Kickoff Eindhoven - Brainport\'s First Startup Club',
-  description: 'Where student ambitions become startup realities. Join Brainport\'s premier startup and entrepreneur club for students.',
+  description: 'Brainport\'s first startup and entrepreneur club for students by students',
   keywords: ['startup club', 'entrepreneur', 'students', 'Eindhoven', 'Brainport', 'networking', 'innovation', 'business', 'startup community'],
   authors: [{ name: 'Kickoff Eindhoven' }],
   creator: 'Kickoff Eindhoven',
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     url: 'https://kickoffeindhoven.com', // Update with your actual domain
     siteName: 'Kickoff Eindhoven',
     title: 'Kickoff Eindhoven - Brainport\'s First Startup Club',
-    description: 'Where student ambitions become startup realities. Join Brainport\'s premier startup and entrepreneur club for students.',
+    description: 'Brainport\'s first startup and entrepreneur club for students by students',
     images: [
       {
         url: '/KickoffLogo.png',
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Kickoff Eindhoven - Brainport\'s First Startup Club',
-    description: 'Where student ambitions become startup realities. Join Brainport\'s premier startup and entrepreneur club for students.',
+    description: 'Brainport\'s first startup and entrepreneur club for students by students',
     images: ['/KickoffLogo.png'],
   },
 

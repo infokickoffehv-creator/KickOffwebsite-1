@@ -8,11 +8,6 @@ export default function About() {
         {/* About Section */}
         <section className="mb-20">
           <h1 className="text-5xl font-bold mb-8">About Us</h1>
-          <div className="max-w-4xl">
-            <p className="text-xl text-gray-600 mb-6">
-              Kickoff Eindhoven is Brainport's first startup and entrepreneur club for students, by students.
-            </p>
-          </div>
         </section>
 
         {/* Board Section */}

@@ -59,8 +59,6 @@ export const currentBoard: BoardMember[] = [
   },
 ];
 
-
-
 // Helper functions
 export function getBoardMemberByPosition(position: string): BoardMember | undefined {
   return currentBoard.find(member =>

@@ -1,4 +1,5 @@
 import { currentBoard } from '@/data/board-members';
+import { Linkedin } from 'lucide-react';
 
 export default function About() {
   return (
@@ -11,29 +12,35 @@ export default function About() {
             <p className="text-xl text-gray-600 mb-6">
               Kickoff Eindhoven is Brainport's first startup and entrepreneur club for students, by students.
             </p>
-            <p className="text-lg text-gray-600">
-              Add more info here
-            </p>
           </div>
         </section>
 
         {/* Board Section */}
         <section>
-          <h2 className="text-4xl font-bold mb-8">Meet Our Board</h2>
-          <p className="text-xl text-gray-600 mb-12">
-            Our passionate student board leads Kickoff Eindhoven with dedication and vision.
-          </p>
-
           {/* Dynamic Board Members */}
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             {currentBoard.slice(0, 3).map((member) => (
               <div key={member.id} className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow">
                 <div className="text-center">
-                  <div className="w-24 h-24 mx-auto mb-4 bg-gray-300 rounded-full"></div>
+                  <img 
+                    src={member.image} 
+                    alt={member.name}
+                    className="w-24 h-24 mx-auto mb-4 rounded-full object-cover"
+                  />
                   <h3 className="text-xl font-bold mb-2">{member.name}</h3>
                   <p className="text-brand-electric-blue font-semibold mb-3">{member.position}</p>
                   <p className="text-sm text-gray-600 mb-2">{member.studyProgram} - Year {member.year}</p>
-                  <p className="text-gray-600 text-sm">{member.bio}</p>
+                  <p className="text-gray-600 text-sm mb-4">{member.bio}</p>
+                  {member.linkedinUrl && (
+                    <a 
+                      href={member.linkedinUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center w-8 h-8 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors"
+                    >
+                      <Linkedin size={16} />
+                    </a>
+                  )}
                 </div>
               </div>
             ))}
@@ -46,11 +53,25 @@ export default function About() {
                 {currentBoard.slice(3).map((member) => (
                   <div key={member.id} className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow">
                     <div className="text-center">
-                      <div className="w-24 h-24 mx-auto mb-4 bg-gray-300 rounded-full"></div>
+                      <img 
+                        src={member.image} 
+                        alt={member.name}
+                        className="w-24 h-24 mx-auto mb-4 rounded-full object-cover"
+                      />
                       <h3 className="text-xl font-bold mb-2">{member.name}</h3>
                       <p className="text-brand-electric-blue font-semibold mb-3">{member.position}</p>
                       <p className="text-sm text-gray-600 mb-2">{member.studyProgram} - Year {member.year}</p>
-                      <p className="text-gray-600 text-sm">{member.bio}</p>
+                      <p className="text-gray-600 text-sm mb-4">{member.bio}</p>
+                      {member.linkedinUrl && (
+                        <a 
+                          href={member.linkedinUrl} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center justify-center w-8 h-8 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors"
+                        >
+                          <Linkedin size={16} />
+                        </a>
+                      )}
                     </div>
                   </div>
                 ))}

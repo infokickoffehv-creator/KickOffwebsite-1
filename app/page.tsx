@@ -66,7 +66,7 @@ export default function Home() {
             <div className="flex justify-center">
               <a href="https://www.avular.com/" target="_blank" rel="noopener noreferrer">
                 <img
-                  src="/avularlogo.webp"
+                  src="/2025EventsLogos/avularlogo.webp"
                   alt="Avular"
                   className="h-14 md:h-20 object-contain opacity-80 hover:opacity-100 transition-opacity cursor-pointer"
                 />
@@ -75,7 +75,7 @@ export default function Home() {
             <div className="flex justify-center">
               <a href="https://axelera.ai/" target="_blank" rel="noopener noreferrer">
                 <img
-                  src="/axeleraailogo.png"
+                  src="/2025EventsLogos/axeleraailogo.png"
                   alt="Axelera AI"
                   className="h-14 md:h-20 object-contain opacity-80 hover:opacity-100 transition-opacity cursor-pointer"
                 />
@@ -84,7 +84,7 @@ export default function Home() {
             <div className="flex justify-center">
               <a href="https://www.linkedin.com/in/curiouscamilo/" target="_blank" rel="noopener noreferrer">
                 <img
-                  src="/BlueWalkerLogo.jpg"
+                  src="/2025EventsLogos/BlueWalkerLogo.jpg"
                   alt="Blue Walker"
                   className="h-14 md:h-20 object-contain opacity-80 hover:opacity-100 transition-opacity cursor-pointer"
                 />
@@ -93,7 +93,7 @@ export default function Home() {
             <div className="flex justify-center">
               <a href="https://www.dembrane.com/en-US" target="_blank" rel="noopener noreferrer">
                 <img
-                  src="/dembradelogo.jpg"
+                  src="/2025EventsLogos/dembradelogo.jpg"
                   alt="Dembrane"
                   className="h-14 md:h-20 object-contain opacity-80 hover:opacity-100 transition-opacity cursor-pointer"
                 />
@@ -102,7 +102,7 @@ export default function Home() {
             <div className="flex justify-center">
               <a href="https://smartphotonics.nl/" target="_blank" rel="noopener noreferrer">
                 <img
-                  src="/smartphotonicslogo.png"
+                  src="/2025EventsLogos/smartphotonicslogo.png"
                   alt="Smart Photonics"
                   className="h-14 md:h-20 object-contain opacity-80 hover:opacity-100 transition-opacity cursor-pointer"
                 />
@@ -111,7 +111,7 @@ export default function Home() {
             <div className="flex justify-center">
               <a href="https://www.weheat.nl/" target="_blank" rel="noopener noreferrer">
                 <img
-                  src="/weheatlogo.jpg"
+                  src="/2025EventsLogos/weheatlogo.jpg"
                   alt="WeHeat"
                   className="h-14 md:h-20 object-contain opacity-80 hover:opacity-100 transition-opacity cursor-pointer"
                 />

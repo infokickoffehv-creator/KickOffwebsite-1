@@ -22,8 +22,8 @@ export default function About() {
             {currentBoard.slice(0, 3).map((member) => (
               <div key={member.id} className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow">
                 <div className="text-center">
-                  <img 
-                    src={member.image} 
+                  <img
+                    src={member.image}
                     alt={member.name}
                     className="w-24 h-24 mx-auto mb-4 rounded-full object-cover"
                   />
@@ -32,9 +32,9 @@ export default function About() {
                   <p className="text-sm text-gray-600 mb-2">{member.studyProgram} - Year {member.year}</p>
                   <p className="text-gray-600 text-sm mb-4">{member.bio}</p>
                   {member.linkedinUrl && (
-                    <a 
-                      href={member.linkedinUrl} 
-                      target="_blank" 
+                    <a
+                      href={member.linkedinUrl}
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center justify-center w-8 h-8 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors"
                     >
@@ -53,8 +53,8 @@ export default function About() {
                 {currentBoard.slice(3).map((member) => (
                   <div key={member.id} className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow">
                     <div className="text-center">
-                      <img 
-                        src={member.image} 
+                      <img
+                        src={member.image}
                         alt={member.name}
                         className="w-24 h-24 mx-auto mb-4 rounded-full object-cover"
                       />
@@ -63,9 +63,9 @@ export default function About() {
                       <p className="text-sm text-gray-600 mb-2">{member.studyProgram} - Year {member.year}</p>
                       <p className="text-gray-600 text-sm mb-4">{member.bio}</p>
                       {member.linkedinUrl && (
-                        <a 
-                          href={member.linkedinUrl} 
-                          target="_blank" 
+                        <a
+                          href={member.linkedinUrl}
+                          target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex items-center justify-center w-8 h-8 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors"
                         >

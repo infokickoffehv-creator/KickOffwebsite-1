@@ -4,9 +4,9 @@
   "description": "Brainport's first startup and entrepreneur club website for TU/e students",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3847",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 3847",
     "lint": "next lint"
   },
   "dependencies": {

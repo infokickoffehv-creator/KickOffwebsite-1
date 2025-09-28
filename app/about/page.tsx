@@ -1,3 +1,5 @@
+import { currentBoard } from '@/data/board-members';
+
 export default function About() {
   return (
     <div className="pt-20 min-h-screen bg-white">
@@ -22,60 +24,39 @@ export default function About() {
             Our passionate student board leads Kickoff Eindhoven with dedication and vision.
           </p>
 
-          {/* First row - 3 members */}
+          {/* Dynamic Board Members */}
           <div className="grid md:grid-cols-3 gap-8 mb-8">
-            <div className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow">
-              <div className="text-center">
-                <div className="w-24 h-24 mx-auto mb-4 bg-gray-300 rounded-full"></div>
-                <h3 className="text-xl font-bold mb-2">Pablo Vega</h3>
-                <p className="text-brand-electric-blue font-semibold mb-3">Chair</p>
-                <p className="text-sm text-gray-600 mb-2">Industrial Engineering - Year 2</p>
-                <p className="text-gray-600 text-sm">Master's student in Innovation Sciences at TU/e with a passion for sustainable technology startups. Previously founded a successful EdTech platform.</p>
+            {currentBoard.slice(0, 3).map((member) => (
+              <div key={member.id} className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow">
+                <div className="text-center">
+                  <div className="w-24 h-24 mx-auto mb-4 bg-gray-300 rounded-full"></div>
+                  <h3 className="text-xl font-bold mb-2">{member.name}</h3>
+                  <p className="text-brand-electric-blue font-semibold mb-3">{member.position}</p>
+                  <p className="text-sm text-gray-600 mb-2">{member.studyProgram} - Year {member.year}</p>
+                  <p className="text-gray-600 text-sm">{member.bio}</p>
+                </div>
               </div>
-            </div>
-            <div className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow">
-              <div className="text-center">
-                <div className="w-24 h-24 mx-auto mb-4 bg-gray-300 rounded-full"></div>
-                <h3 className="text-xl font-bold mb-2">Tim Molas Pfeifer</h3>
-                <p className="text-brand-electric-blue font-semibold mb-3">External Affairs</p>
-                <p className="text-sm text-gray-600 mb-2">Mechanical Engineering - Year 2</p>
-                <p className="text-gray-600 text-sm">Electrical Engineering student passionate about hardware startups and IoT innovations. Co-founded a smart city solutions startup.</p>
-              </div>
-            </div>
-            <div className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow">
-              <div className="text-center">
-                <div className="w-24 h-24 mx-auto mb-4 bg-gray-300 rounded-full"></div>
-                <h3 className="text-xl font-bold mb-2">Egor Kubyshev</h3>
-                <p className="text-brand-electric-blue font-semibold mb-3">Vision and Marketing</p>
-                <p className="text-sm text-gray-600 mb-2">Mechanical Engineering - Year 2</p>
-                <p className="text-gray-600 text-sm">Industrial Engineering & Management student with expertise in fintech and financial modeling. Former intern at a leading venture capital firm.</p>
-              </div>
-            </div>
+            ))}
           </div>
 
-          {/* Second row - 2 members centered */}
-          <div className="flex justify-center">
-            <div className="grid md:grid-cols-2 gap-8 max-w-2xl">
-              <div className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow">
-                <div className="text-center">
-                  <div className="w-24 h-24 mx-auto mb-4 bg-gray-300 rounded-full"></div>
-                  <h3 className="text-xl font-bold mb-2">Sebastian Castaño</h3>
-                  <p className="text-brand-electric-blue font-semibold mb-3">Treasurer</p>
-                  <p className="text-sm text-gray-600 mb-2">Fontys</p>
-                  <p className="text-gray-600 text-sm">Computer Science student specializing in AI and machine learning applications. Built several successful SaaS products.</p>
-                </div>
-              </div>
-              <div className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow">
-                <div className="text-center">
-                  <div className="w-24 h-24 mx-auto mb-4 bg-gray-300 rounded-full"></div>
-                  <h3 className="text-xl font-bold mb-2">Johannes Wagenknecht</h3>
-                  <p className="text-brand-electric-blue font-semibold mb-3">Events Manager</p>
-                  <p className="text-sm text-gray-600 mb-2">Industrial Engineering - Year 2</p>
-                  <p className="text-gray-600 text-sm">Business Administration student with a focus on event management and community building. Has organized multiple successful startup events.</p>
-                </div>
+          {/* Remaining members centered */}
+          {currentBoard.length > 3 && (
+            <div className="flex justify-center">
+              <div className="grid md:grid-cols-2 gap-8 max-w-2xl">
+                {currentBoard.slice(3).map((member) => (
+                  <div key={member.id} className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow">
+                    <div className="text-center">
+                      <div className="w-24 h-24 mx-auto mb-4 bg-gray-300 rounded-full"></div>
+                      <h3 className="text-xl font-bold mb-2">{member.name}</h3>
+                      <p className="text-brand-electric-blue font-semibold mb-3">{member.position}</p>
+                      <p className="text-sm text-gray-600 mb-2">{member.studyProgram} - Year {member.year}</p>
+                      <p className="text-gray-600 text-sm">{member.bio}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
-          </div>
+          )}
         </section>
       </div>
     </div>

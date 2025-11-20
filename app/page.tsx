@@ -1,10 +1,11 @@
 import Hero from '@/components/Hero'
 import Link from 'next/link'
-import { Lightbulb, Users, Rocket, Calendar, Clock, ArrowRight, MapPin } from 'lucide-react'
-import { getFeaturedEvents } from '@/data/events'
+import { Lightbulb, Users, Rocket, Calendar, Clock, ArrowRight } from 'lucide-react'
+import { getFeaturedEvents, getPastEvents } from '@/data/events'
 
 export default function Home() {
   const featuredEvents = getFeaturedEvents(1); // Get the first upcoming event
+  const pastEvents = getPastEvents(); // Get all past events
 
   const pillars = [
     {
@@ -140,10 +141,9 @@ export default function Home() {
                 <div key={event.id} className={`group relative overflow-hidden rounded-2xl penthouse-shadow hover:penthouse-shadow-lg transition-all duration-500 hover:scale-[1.02] ${
                   index === 0 ? 'bg-gradient-to-r from-black to-gray-800 text-white' : 'bg-white'
                 }`}>
-                  {/* Featured event (first one) gets special treatment */}
                   {index === 0 && (
                     <div className="absolute top-4 right-4 z-10">
-                      <div className="bg-brand-electric-blue text-white px-3 py-1 rounded-full text-xs font-bold tracking-wider">
+                      <div className="bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold tracking-wider">
                         FEATURED
                       </div>
                     </div>
@@ -151,11 +151,10 @@ export default function Home() {
 
                   <div className="p-8 md:p-12">
                     <div className="flex flex-col lg:flex-row lg:items-center gap-8">
-                      {/* Event Info */}
                       <div className="flex-1">
                         <div className="flex items-center gap-3 mb-4">
                           <div className={`p-2 rounded-lg ${index === 0 ? 'bg-white/20' : 'bg-gray-100'}`}>
-                            <Calendar size={20} className={index === 0 ? 'text-white' : 'text-brand-electric-blue'} />
+                            <Calendar size={20} className={index === 0 ? 'text-orange-400' : 'text-brand-electric-blue'} />
                           </div>
                           <div className="flex flex-wrap gap-4 text-sm">
                             <span className={`font-medium ${index === 0 ? 'text-gray-200' : 'text-gray-600'}`}>
@@ -172,7 +171,7 @@ export default function Home() {
                             </span>
                             <span className={`${index === 0 ? 'text-gray-300' : 'text-gray-500'}`}>•</span>
                             <span className={`font-medium ${index === 0 ? 'text-gray-200' : 'text-gray-600'}`}>
-                              Atlast 0.820
+                              {event.location}
                             </span>
                           </div>
                         </div>
@@ -189,16 +188,15 @@ export default function Home() {
                           {event.description}
                         </p>
 
-                        {/* Speakers */}
                         {event.speakers && event.speakers.length > 0 && (
                           <div className="flex items-center gap-3 mb-6">
-                            <Users size={16} className={index === 0 ? 'text-gray-300' : 'text-gray-500'} />
+                            <Users size={16} className={index === 0 ? 'text-orange-400' : 'text-gray-500'} />
                             <span className={`text-sm font-medium ${index === 0 ? 'text-gray-300' : 'text-gray-500'}`}>
                               Speaker:
                             </span>
                             {event.speakers.map((speaker) => (
                               <span key={speaker.id} className={`font-semibold ${
-                                index === 0 ? 'text-white' : 'text-black'
+                                index === 0 ? 'text-orange-400' : 'text-black'
                               }`}>
                                 {speaker.name}, {speaker.title} at {speaker.company}
                               </span>
@@ -207,13 +205,12 @@ export default function Home() {
                         )}
                       </div>
 
-                      {/* CTA */}
                       <div className="lg:flex-shrink-0">
                         {event.ticketUrl && (
                           <Link href={event.ticketUrl} target="_blank" rel="noopener noreferrer">
                             <button className={`group/btn relative overflow-hidden px-8 py-4 font-bold tracking-wider transition-all duration-300 hover:scale-105 ${
                               index === 0
-                                ? 'bg-white text-black hover:bg-gray-100'
+                                ? 'bg-orange-500 text-white hover:bg-orange-600'
                                 : 'bg-black text-white hover:bg-gray-800'
                             }`}>
                               <span className="relative z-10 flex items-center gap-2">
@@ -227,9 +224,8 @@ export default function Home() {
                     </div>
                   </div>
 
-                  {/* Decorative elements */}
                   {index === 0 && (
-                    <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-brand-electric-blue/20 to-transparent"></div>
+                    <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-orange-500/20 to-transparent"></div>
                   )}
                 </div>
               ))}
@@ -241,25 +237,116 @@ export default function Home() {
                   <Calendar size={32} className="text-brand-electric-blue" />
                 </div>
                 <h3 className="text-2xl font-bold mb-4">
-                  Exciting Events Coming Soon!
+                  More Coming Soon!
                 </h3>
-                <p className="text-gray-600">
-                  We're cooking up some amazing events. Stay tuned!
+                <p className="text-gray-600 mb-6">
+                  We're planning exciting events for the upcoming semester. Check out our past events below!
                 </p>
+                <Link href="/events">
+                  <button className="btn-primary group inline-flex items-center">
+                    <span>View Past Events</span>
+                    <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </Link>
               </div>
             </div>
           )}
 
-          <div className="text-center">
-            <Link href="/events">
-              <button className="btn-primary group">
-                <span>View All Events</span>
-                <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
-              </button>
-            </Link>
-          </div>
         </div>
       </section>
+
+      {/* Past Events Section */}
+      {pastEvents.length > 0 && (
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-orange-50 to-white">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-4 py-2 rounded-full text-sm font-medium tracking-wider mb-6">
+                <Clock size={16} />
+                RECENT EVENTS
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                Recent Events
+              </h2>
+            </div>
+
+            <div className="grid gap-6">
+              {pastEvents.map((event) => (
+                <div key={event.id} className="group relative overflow-hidden rounded-2xl penthouse-shadow hover:penthouse-shadow-lg transition-all duration-500 hover:scale-[1.01] bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900">
+                  <div className="p-6 md:p-8">
+                    <div className="flex flex-col lg:flex-row lg:items-center gap-6">
+                      {/* Event Image - Compact */}
+                      {event.image && (
+                        <div className="lg:w-2/5 relative overflow-hidden rounded-xl">
+                          <img
+                            src="/OWOW/OWOW horizontal poster.jpg"
+                            alt={event.title}
+                            className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+                          />
+                        </div>
+                      )}
+
+                      {/* Event Info - Compact */}
+                      <div className="flex-1 text-white">
+                        <div className="flex items-center gap-3 mb-3">
+                          <div className="p-2 rounded-lg bg-orange-500/20">
+                            <Calendar size={16} className="text-orange-400" />
+                          </div>
+                          <div className="flex flex-wrap gap-3 text-sm">
+                            <span className="font-medium text-gray-300">
+                              {new Date(event.date).toLocaleDateString('en-US', {
+                                month: 'long',
+                                day: 'numeric',
+                                year: 'numeric'
+                              })}
+                            </span>
+                            <span className="text-gray-500">•</span>
+                            <span className="font-medium text-gray-300">{event.time}</span>
+                            <span className="text-gray-500">•</span>
+                            <span className="font-medium text-gray-300">{event.location}</span>
+                          </div>
+                        </div>
+
+                        <h3 className="text-2xl md:text-3xl font-bold mb-3 leading-tight">
+                          <span className="text-orange-400">{event.title.split(':')[0]}:</span>
+                          <span className="text-white"> {event.title.split(':')[1]}</span>
+                        </h3>
+
+                        <p className="text-base leading-relaxed mb-4 text-gray-300 line-clamp-2">
+                          {event.description}
+                        </p>
+
+                        {/* Speakers - Compact */}
+                        {event.speakers && event.speakers.length > 0 && (
+                          <div className="flex items-center gap-2">
+                            <Users size={14} className="text-orange-400" />
+                            {event.speakers.map((speaker) => (
+                              <span key={speaker.id} className="text-sm font-semibold text-gray-200">
+                                {speaker.name} - <span className="text-orange-400">{speaker.title}</span> at {speaker.company}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Decorative gradient overlay */}
+                  <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-orange-500/10 to-transparent pointer-events-none"></div>
+                </div>
+              ))}
+            </div>
+
+            <div className="text-center mt-8">
+              <Link href="/events">
+                <button className="bg-orange-500 text-white hover:bg-orange-600 px-6 py-3 rounded-lg font-bold tracking-wider transition-all duration-300 hover:scale-105 inline-flex items-center gap-2 penthouse-shadow">
+                  <span>View All Events</span>
+                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                </button>
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Our Mission */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">

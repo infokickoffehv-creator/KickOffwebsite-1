@@ -1,7 +1,5 @@
 'use client'
 
-import { ArrowRight } from 'lucide-react'
-
 export default function Hero() {
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden bg-white">

@@ -5,7 +5,7 @@ export const mockEvents: Event[] = [
   {
     id: 'event-owow-robin-dohmen-upcoming',
     title: 'Eindhoven Business Talks: Robin Dohmen, OWOW',
-    description: 'After hosting 1B€+ worth of companies, KickOff 🚀 presents: Eindhoven Business Talks. Co-hosting with B&R🐂, our first guest this year is Robin Dohmen, CEO and Founder of OWOW, a leading digital product and venture studio from Eindhoven that designs software and partners with startups to bring new ideas to life. Robin will break down OWOW\'s journey from agency to venture studio, and what it takes to turn an idea into a company. Meet the team at the end during the networking drinks. 🍻🥂 Free lecture, 1 MyFuture point.',
+    description: 'After hosting 1B€+ worth of companies, KickOff 🚀 presents: Eindhoven Business Talks.\n\nCo-hosting with B&R🐂, our first guest this year is Robin Dohmen, CEO and Founder of OWOW, a leading digital product and venture studio from Eindhoven that designs software and partners with startups to bring new ideas to life.\n\nRobin will break down OWOW\'s journey from agency to venture studio, and what it takes to turn an idea into a company.\n\nMeet the team at the end during the networking drinks. 🍻🥂\nFree lecture, 1 MyFuture point.',
     date: '2025-12-15',
     time: '18:00',
     location: 'Blauwe Zaal Auditorium, TU/e',

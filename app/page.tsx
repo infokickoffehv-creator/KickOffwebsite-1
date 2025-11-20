@@ -139,94 +139,77 @@ export default function Home() {
             <div className="grid gap-8 mb-12">
               {featuredEvents.map((event, index) => (
                 <div key={event.id} className={`group relative overflow-hidden rounded-2xl penthouse-shadow hover:penthouse-shadow-lg transition-all duration-500 hover:scale-[1.02] ${
-                  index === 0 ? 'bg-gradient-to-r from-black to-gray-800 text-white' : 'bg-white'
+                  index === 0 ? 'bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white' : 'bg-white'
                 }`}>
-                  {index === 0 && (
-                    <div className="absolute top-4 right-4 z-10">
-                      <div className="bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold tracking-wider">
-                        FEATURED
-                      </div>
-                    </div>
-                  )}
-
                   <div className="p-8 md:p-12">
-                    <div className="flex flex-col lg:flex-row lg:items-center gap-8">
-                      <div className="flex-1">
-                        <div className="flex items-center gap-3 mb-4">
-                          <div className={`p-2 rounded-lg ${index === 0 ? 'bg-white/20' : 'bg-gray-100'}`}>
-                            <Calendar size={20} className={index === 0 ? 'text-orange-400' : 'text-brand-electric-blue'} />
-                          </div>
+                    <div className="flex flex-col lg:flex-row gap-8">
+                      {/* Event Poster */}
+                      {event.image && (
+                        <div className="lg:w-2/5 relative overflow-hidden rounded-xl">
+                          <img
+                            src={event.image}
+                            alt={event.title}
+                            className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+                          />
+                        </div>
+                      )}
+
+                      {/* Event Content */}
+                      <div className="flex-1 flex flex-col">
+                        <div className="flex-1">
+                          <h3 className="text-2xl md:text-3xl font-bold mb-4 leading-tight">
+                            <span className="text-orange-400">{event.title.split(':')[0]}:</span>
+                            <span className="text-white"> {event.title.split(':')[1]}</span>
+                          </h3>
+
+                          <p className="text-lg leading-relaxed text-gray-200 whitespace-pre-line">
+                            {event.description}
+                          </p>
+                        </div>
+
+                        {/* Bottom section with date/time/location and button */}
+                        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mt-6 pt-6 border-t border-orange-500/20">
                           <div className="flex flex-wrap gap-4 text-sm">
-                            <span className={`font-medium ${index === 0 ? 'text-gray-200' : 'text-gray-600'}`}>
-                              {new Date(event.date).toLocaleDateString('en-US', {
-                                weekday: 'long',
-                                month: 'long',
-                                day: 'numeric',
-                                year: 'numeric'
-                              })}
-                            </span>
-                            <span className={`${index === 0 ? 'text-gray-300' : 'text-gray-500'}`}>•</span>
-                            <span className={`font-medium ${index === 0 ? 'text-gray-200' : 'text-gray-600'}`}>
-                              {event.time}
-                            </span>
-                            <span className={`${index === 0 ? 'text-gray-300' : 'text-gray-500'}`}>•</span>
-                            <span className={`font-medium ${index === 0 ? 'text-gray-200' : 'text-gray-600'}`}>
+                            <div className="flex items-center gap-2">
+                              <Calendar size={16} className="text-orange-400" />
+                              <span className="font-medium text-gray-300">
+                                {new Date(event.date).toLocaleDateString('en-US', {
+                                  month: 'long',
+                                  day: 'numeric',
+                                  year: 'numeric'
+                                })}
+                              </span>
+                            </div>
+                            <span className="text-gray-500">•</span>
+                            <div className="flex items-center gap-2">
+                              <Clock size={16} className="text-orange-400" />
+                              <span className="font-medium text-gray-300">
+                                {event.time}
+                              </span>
+                            </div>
+                            <span className="text-gray-500">•</span>
+                            <span className="font-medium text-gray-300">
                               {event.location}
                             </span>
                           </div>
+
+                          {event.ticketUrl && (
+                            <Link href={event.ticketUrl} target="_blank" rel="noopener noreferrer">
+                              <button className="group/btn relative overflow-hidden px-8 py-4 rounded-full font-bold tracking-wider transition-all duration-300 hover:scale-105 whitespace-nowrap bg-orange-500 text-white hover:bg-orange-600">
+                                <span className="relative z-10 flex items-center gap-2">
+                                  Register Now
+                                  <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
+                                </span>
+                              </button>
+                            </Link>
+                          )}
                         </div>
-
-                        <h3 className={`text-2xl md:text-3xl font-bold mb-4 leading-tight ${
-                          index === 0 ? 'text-white' : 'text-black'
-                        }`}>
-                          {event.title}
-                        </h3>
-
-                        <p className={`text-lg leading-relaxed mb-6 ${
-                          index === 0 ? 'text-gray-200' : 'text-gray-600'
-                        }`}>
-                          {event.description}
-                        </p>
-
-                        {event.speakers && event.speakers.length > 0 && (
-                          <div className="flex items-center gap-3 mb-6">
-                            <Users size={16} className={index === 0 ? 'text-orange-400' : 'text-gray-500'} />
-                            <span className={`text-sm font-medium ${index === 0 ? 'text-gray-300' : 'text-gray-500'}`}>
-                              Speaker:
-                            </span>
-                            {event.speakers.map((speaker) => (
-                              <span key={speaker.id} className={`font-semibold ${
-                                index === 0 ? 'text-orange-400' : 'text-black'
-                              }`}>
-                                {speaker.name}, {speaker.title} at {speaker.company}
-                              </span>
-                            ))}
-                          </div>
-                        )}
-                      </div>
-
-                      <div className="lg:flex-shrink-0">
-                        {event.ticketUrl && (
-                          <Link href={event.ticketUrl} target="_blank" rel="noopener noreferrer">
-                            <button className={`group/btn relative overflow-hidden px-8 py-4 font-bold tracking-wider transition-all duration-300 hover:scale-105 ${
-                              index === 0
-                                ? 'bg-orange-500 text-white hover:bg-orange-600'
-                                : 'bg-black text-white hover:bg-gray-800'
-                            }`}>
-                              <span className="relative z-10 flex items-center gap-2">
-                                Register Now
-                                <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
-                              </span>
-                            </button>
-                          </Link>
-                        )}
                       </div>
                     </div>
                   </div>
 
-                  {index === 0 && (
-                    <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-orange-500/20 to-transparent"></div>
-                  )}
+                  {/* Decorative gradient overlay */}
+                  <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-orange-500/10 to-transparent pointer-events-none"></div>
                 </div>
               ))}
             </div>
@@ -320,9 +303,15 @@ export default function Home() {
                           <div className="flex items-center gap-2">
                             <Users size={14} className="text-orange-400" />
                             {event.speakers.map((speaker) => (
-                              <span key={speaker.id} className="text-sm font-semibold text-gray-200">
+                              <a
+                                key={speaker.id}
+                                href={speaker.linkedinUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-sm font-semibold text-gray-200 hover:text-orange-400 transition-colors"
+                              >
                                 {speaker.name} - <span className="text-orange-400">{speaker.title}</span> at {speaker.company}
-                              </span>
+                              </a>
                             ))}
                           </div>
                         )}

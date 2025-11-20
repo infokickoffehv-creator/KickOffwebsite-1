@@ -1,4 +1,4 @@
-import { Calendar, Clock, MapPin, Users, ArrowRight, Zap, Star } from 'lucide-react'
+import { Calendar, Clock, Users, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import { getUpcomingEvents, getPastEvents } from '@/data/events'
 
@@ -9,17 +9,9 @@ export default function Events() {
   return (
     <div className="pt-20 min-h-screen bg-gradient-to-br from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-black text-white px-4 py-2 rounded-full text-sm font-medium tracking-wider mb-6">
-            <Zap size={16} />
-            EVENTS
-          </div>
-        </div>
-
         {/* Upcoming Events */}
         {upcomingEvents.length > 0 && (
-          <section className="mb-20">
+          <section className="mb-12">
             <div className="flex items-center gap-3 mb-8">
               <div className="w-1 h-8 bg-orange-500 rounded-full"></div>
               <h2 className="text-3xl font-bold">Upcoming Events</h2>

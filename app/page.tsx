@@ -122,20 +122,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Upcoming Events Preview */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-black text-white px-4 py-2 rounded-full text-sm font-medium tracking-wider mb-6">
-              <Calendar size={16} />
-              UPCOMING EVENTS
+      {/* Upcoming Events Preview - Only shows section if there are events */}
+      {featuredEvents.length > 0 && (
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-white">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center gap-2 bg-black text-white px-4 py-2 rounded-full text-sm font-medium tracking-wider mb-6">
+                <Calendar size={16} />
+                UPCOMING EVENTS
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                Upcoming Events
+              </h2>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Upcoming Events
-            </h2>
-          </div>
 
-          {featuredEvents.length > 0 ? (
+            {featuredEvents.length > 0 && (
             <div className="grid gap-8 mb-12">
               {featuredEvents.map((event, index) => (
                 <div key={event.id} className={`group relative overflow-hidden rounded-2xl penthouse-shadow hover:penthouse-shadow-lg transition-all duration-500 hover:scale-[1.02] ${
@@ -213,30 +214,10 @@ export default function Home() {
                 </div>
               ))}
             </div>
-          ) : (
-            <div className="text-center py-16">
-              <div className="bg-white p-12 rounded-2xl penthouse-shadow max-w-lg mx-auto">
-                <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Calendar size={32} className="text-brand-electric-blue" />
-                </div>
-                <h3 className="text-2xl font-bold mb-4">
-                  More Coming Soon!
-                </h3>
-                <p className="text-gray-600 mb-6">
-                  We're planning exciting events for the upcoming semester. Check out our past events below!
-                </p>
-                <Link href="/events">
-                  <button className="btn-primary group inline-flex items-center">
-                    <span>View Past Events</span>
-                    <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
-                  </button>
-                </Link>
-              </div>
-            </div>
-          )}
-
-        </div>
-      </section>
+            )}
+          </div>
+        </section>
+      )}
 
       {/* Past Events Section */}
       {pastEvents.length > 0 && (
@@ -332,6 +313,30 @@ export default function Home() {
                   <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </button>
               </Link>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Coming Soon Section - Only shows when NO upcoming events */}
+      {featuredEvents.length === 0 && (
+        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-white">
+          <div className="max-w-4xl mx-auto">
+            <div className="relative overflow-hidden rounded-2xl penthouse-shadow bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
+              <div className="p-8 text-center relative z-10">
+                <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-brand-electric-blue/20 to-purple-500/20 rounded-full mb-4 backdrop-blur-sm border border-white/10">
+                  <Rocket size={28} className="text-brand-electric-blue" />
+                </div>
+
+                <h3 className="text-2xl font-bold mb-2">
+                  New Events Coming Soon
+                </h3>
+
+                <p className="text-sm text-gray-300 max-w-md mx-auto">
+                  Stay tuned for announcements about inspiring talks and networking opportunities.
+                </p>
+              </div>
+              <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-brand-electric-blue/10 to-transparent pointer-events-none"></div>
             </div>
           </div>
         </section>

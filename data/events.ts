@@ -2,6 +2,9 @@ import type { Event } from '@/lib/types';
 
 // Mock Events Data
 export const mockEvents: Event[] = [
+  // TEMPLATE: Use this as a model for future upcoming events
+  // Uncomment and modify when adding a new event
+  /*
   {
     id: 'event-owow-robin-dohmen-upcoming',
     title: 'Eindhoven Business Talks: Robin Dohmen, OWOW',
@@ -27,6 +30,7 @@ export const mockEvents: Event[] = [
       }
     ]
   },
+  */
   {
     id: 'event-owow-robin-dohmen-past',
     title: 'Eindhoven Business Talks: Robin Dohmen, OWOW',

@@ -8,9 +8,10 @@ export default function Hero() {
           <div className="mb-8">
             <div className="inline-block mb-6">
               <img
-                src="/KickOffLogoPNG.png"
+                src="/KickoffLogo.png"
                 alt="Kickoff Eindhoven Logo"
                 className="h-32 md:h-40 w-auto mx-auto"
+                style={{ imageRendering: 'crisp-edges' }}
               />
             </div>
           </div>

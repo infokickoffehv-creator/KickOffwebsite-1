@@ -8,7 +8,7 @@ export default function Hero() {
           <div className="mb-8">
             <div className="inline-block mb-6">
               <img
-                src="/KickoffLogo.png"
+                src="/KickOffLogoPNG.png"
                 alt="Kickoff Eindhoven Logo"
                 className="h-32 md:h-40 w-auto mx-auto"
               />

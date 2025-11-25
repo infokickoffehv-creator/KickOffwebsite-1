@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     description: 'Brainport\'s first startup and entrepreneur club for students by students',
     images: [
       {
-        url: '/KickoffLogo.png',
+        url: '/KickOffLogoPNG.png',
         width: 1200,
         height: 630,
         alt: 'Kickoff Eindhoven Logo',
@@ -38,14 +38,14 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Kickoff Eindhoven - Brainport\'s First Startup Club',
     description: 'Brainport\'s first startup and entrepreneur club for students by students',
-    images: ['/KickoffLogo.png'],
+    images: ['/KickOffLogoPNG.png'],
   },
 
   // Favicon and app icons
   icons: {
-    icon: '/KickoffLogo.png',
-    shortcut: '/KickoffLogo.png',
-    apple: '/KickoffLogo.png',
+    icon: '/KickOffLogoPNG.png',
+    shortcut: '/KickOffLogoPNG.png',
+    apple: '/KickOffLogoPNG.png',
   },
 }
 

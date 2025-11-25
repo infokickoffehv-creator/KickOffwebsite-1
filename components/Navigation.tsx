@@ -19,7 +19,7 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-20">
           <Link href="/" className="flex items-center">
             <img
-              src="/KickoffLogo.png"
+              src="/KickOffLogoPNG.png"
               alt="Kickoff Eindhoven Logo"
               className="h-12 w-auto"
             />

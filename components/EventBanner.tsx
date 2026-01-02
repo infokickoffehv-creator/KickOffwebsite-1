@@ -37,7 +37,7 @@ export default function EventBanner({ event, index = 0 }: EventBannerProps) {
             </div>
 
             {/* Bottom section with date/time/location and button */}
-            <div className={`flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mt-6 pt-6 border-t ${event.id.includes('rift') ? 'border-brand-electric-blue/20' : 'border-orange-500/20'}`}>
+            <div className={`flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-6 pt-6 border-t ${event.id.includes('rift') ? 'border-brand-electric-blue/20' : 'border-orange-500/20'}`}>
               <div className="flex flex-nowrap gap-2 sm:gap-4 text-sm overflow-x-auto">
                 <div className="flex items-center gap-2 whitespace-nowrap">
                   <Calendar size={16} className={event.id.includes('rift') ? 'text-brand-electric-blue' : 'text-orange-400'} />

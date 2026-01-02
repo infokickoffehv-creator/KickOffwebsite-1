@@ -241,7 +241,7 @@ export default function Home() {
                     <div className="flex flex-col lg:flex-row lg:items-center gap-6">
                       {/* Event Image - Compact with YouTube hover */}
                       {event.image && (
-                        <div className="lg:w-2/5 relative overflow-hidden rounded-xl group/video">
+                        <div className="lg:w-2/5 relative overflow-hidden rounded-xl">
                           {/* Regular poster image */}
                           <img
                             src="/OWOW/OWOW horizontal poster.jpg"

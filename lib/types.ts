@@ -10,6 +10,7 @@ export interface Event {
   status: EventStatus;
   ticketUrl?: string;
   image?: string;
+  youtubeUrl?: string;
   speakers?: Speaker[];
   capacity?: number;
   registeredCount?: number;

@@ -41,6 +41,7 @@ export const mockEvents: Event[] = [
     type: 'business-talks',
     status: 'past',
     image: '/OWOW/Robin Dohmen - OWOW.png',
+    youtubeUrl: 'https://www.youtube.com/watch?v=96yIQWfWUvU',
     capacity: 200,
     registeredCount: 200,
     speakers: [

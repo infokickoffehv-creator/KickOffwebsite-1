@@ -1,6 +1,7 @@
-import { Calendar, Clock, Users, ArrowRight } from 'lucide-react'
+import { Calendar, Clock, Users, ArrowRight, Play } from 'lucide-react'
 import Link from 'next/link'
 import { getUpcomingEvents, getPastEvents } from '@/data/events'
+import { getYouTubeThumbnail } from '@/lib/utils'
 
 export default function Events() {
   const upcomingEvents = getUpcomingEvents()
@@ -114,12 +115,43 @@ export default function Events() {
                     <div className="flex flex-col lg:flex-row lg:items-center gap-6">
                       {/* Event Image - Compact */}
                       {event.image && (
-                        <div className="lg:w-2/5 relative overflow-hidden rounded-xl">
+                        <div className="lg:w-2/5 relative overflow-hidden rounded-xl group/video">
+                          {/* Regular poster image */}
                           <img
                             src="/OWOW/OWOW horizontal poster.jpg"
                             alt={event.title}
-                            className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+                            className={`w-full h-auto object-cover transition-all duration-500 ${
+                              event.youtubeUrl ? 'group-hover/video:opacity-0' : 'group-hover:scale-105'
+                            }`}
                           />
+
+                          {/* YouTube thumbnail overlay */}
+                          {event.youtubeUrl && (
+                            <>
+                              <div className="absolute inset-0 opacity-0 group-hover/video:opacity-100 transition-opacity duration-500">
+                                <img
+                                  src={getYouTubeThumbnail(event.youtubeUrl) || event.image}
+                                  alt={`${event.title} - Video`}
+                                  className="w-full h-full object-cover"
+                                />
+                                {/* YouTube play button overlay */}
+                                <div className="absolute inset-0 flex items-center justify-center bg-black/20">
+                                  <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition-transform duration-200">
+                                    <Play size={24} className="text-white ml-1" fill="currentColor" />
+                                  </div>
+                                </div>
+                              </div>
+
+                              {/* Clickable overlay to open YouTube */}
+                              <a
+                                href={event.youtubeUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="absolute inset-0 z-10 opacity-0 group-hover/video:opacity-100 transition-opacity duration-500"
+                                aria-label={`Watch ${event.title} on YouTube`}
+                              />
+                            </>
+                          )}
                         </div>
                       )}
 
